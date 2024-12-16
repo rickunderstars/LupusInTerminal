@@ -17,5 +17,12 @@ public class Player {
         this.alive = false;
     }
 
-    //TODO: equals for testRoleAssignment
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Player player = (Player) o;
+        return name.equals(player.name);
+    }
 }

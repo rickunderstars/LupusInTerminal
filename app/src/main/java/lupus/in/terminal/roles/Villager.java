@@ -2,33 +2,39 @@ package lupus.in.terminal.roles;
 
 import lupus.in.terminal.Player;
 
+import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 
 public enum Villager implements Role {
+
     INSTANCE;
+
+    private final Set<Player> villagers = new HashSet<>();
 
     @Override
     public void add(Player player) {
-
+        villagers.add(player);
     }
 
     @Override
     public void remove(Player player) {
-
+        villagers.remove(player);
     }
 
     @Override
-    public List<Player> getPlayers() {
-        return List.of();
+    public Set<Player> getPlayers() {
+        return Set.copyOf(villagers);
     }
 
     @Override
-    public List<Player> getAlive() {
-        return List.of();
+    public Set<Player> getAlive() {
+        return Set.of();
     }
 
     @Override
-    public List<Player> getDead() {
-        return List.of();
+    public Set<Player> getDead() {
+        return Set.of();
     }
 }

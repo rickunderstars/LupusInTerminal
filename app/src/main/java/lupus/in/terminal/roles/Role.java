@@ -2,7 +2,8 @@ package lupus.in.terminal.roles;
 
 import lupus.in.terminal.Player;
 
-import java.util.List;
+
+import java.util.Set;
 
 public interface Role {
 
@@ -10,9 +11,9 @@ public interface Role {
 
     void remove(Player player);
 
-    List<Player> getPlayers();
+    Set<Player> getPlayers();
 
-    List<Player> getAlive();
+    Set<Player> getAlive();
 
-    List<Player> getDead();
+    Set<Player> getDead();
 }
