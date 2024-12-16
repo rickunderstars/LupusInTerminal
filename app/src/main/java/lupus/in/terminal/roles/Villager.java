@@ -16,11 +16,13 @@ public enum Villager implements Role {
     @Override
     public void add(Player player) {
         villagers.add(player);
+        player.setRole(this);
     }
 
     @Override
     public void remove(Player player) {
         villagers.remove(player);
+        player.setRole(Role.NULL);
     }
 
     @Override

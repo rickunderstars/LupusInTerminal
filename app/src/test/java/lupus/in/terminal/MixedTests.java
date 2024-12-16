@@ -4,7 +4,7 @@ import lupus.in.terminal.roles.Role;
 import lupus.in.terminal.roles.Villager;
 import org.junit.jupiter.api.Test;
 
-import java.util.List;
+import java.util.Set;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -29,11 +29,11 @@ public class MixedTests {
         Villager.INSTANCE.add(p2);
         Villager.INSTANCE.add(p3);
 
-        assertThat(Villager.INSTANCE.getPlayers()).containsExactlyInAnyOrderElementsOf(List.of(p1,p2,p3));
+        assertThat(Villager.INSTANCE.getPlayers()).containsExactlyInAnyOrderElementsOf(Set.of(p1,p2,p3));
 
         Villager.INSTANCE.remove(p2);
 
-        assertThat(Villager.INSTANCE.getPlayers()).containsExactlyInAnyOrderElementsOf(List.of(p1,p3));
+        assertThat(Villager.INSTANCE.getPlayers()).containsExactlyInAnyOrderElementsOf(Set.of(p1,p3));
     }
 
     @Test

@@ -6,6 +6,7 @@ public class Player {
 
     private final String name;
     private boolean alive = true;
+    private Role role = Role.NULL;
 
     public Player(String name) {
         this.name = name;
@@ -28,7 +29,16 @@ public class Player {
         return name.equals(player.name);
     }
 
+    @Override
+    public int hashCode() {
+        return name.hashCode();
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
     public Role getRole() {
-        return null;
+        return role;
     }
 }
