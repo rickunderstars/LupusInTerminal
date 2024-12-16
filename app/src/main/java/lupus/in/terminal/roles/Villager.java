@@ -32,11 +32,23 @@ public enum Villager implements Role {
 
     @Override
     public Set<Player> getAlive() {
-        return Set.of();
+        Set<Player> alive = new HashSet<>();
+        for (Player p : villagers) {
+            if (p.isAlive()) {
+                alive.add(p);
+            }
+        }
+        return Set.copyOf(alive);
     }
 
     @Override
     public Set<Player> getDead() {
-        return Set.of();
+        Set<Player> dead = new HashSet<>();
+        for (Player p : villagers) {
+            if (!p.isAlive()) {
+                dead.add(p);
+            }
+        }
+        return Set.copyOf(dead);
     }
 }
