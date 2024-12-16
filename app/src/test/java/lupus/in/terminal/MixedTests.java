@@ -47,4 +47,20 @@ public class MixedTests {
         assertThat(p1.getRole()).isEqualTo(Villager.INSTANCE);
     }
 
+    @Test
+    public void testRoleGetAliveAndDead() {
+        Player p1 = new Player("gianni");
+        Player p2 = new Player("giovanni");
+        Player p3 = new Player("jeremy");
+
+        Villager.INSTANCE.add(p1);
+        Villager.INSTANCE.add(p2);
+        Villager.INSTANCE.add(p3);
+
+        p2.die();
+
+        assertThat(Villager.INSTANCE.getAlive()).containsExactlyInAnyOrderElementsOf(Set.of(p1,p3));
+        assertThat(Villager.INSTANCE.getDead()).containsExactlyInAnyOrderElementsOf(Set.of(p2));
+    }
+
 }
