@@ -1,13 +1,19 @@
 package lupus.in.terminal;
 
 public class Player {
-    public Player(String gianni) {
+
+    private final String name;
+    private boolean alive = true;
+
+    public Player(String name) {
+        this.name = name;
     }
 
     public boolean isAlive() {
-        return false;
+        return alive;
     }
 
     public void die() {
+        this.alive = false;
     }
 }
