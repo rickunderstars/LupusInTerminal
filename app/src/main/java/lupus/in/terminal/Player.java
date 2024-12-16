@@ -16,4 +16,6 @@ public class Player {
     public void die() {
         this.alive = false;
     }
+
+    //TODO: equals for testRoleAssignment
 }
