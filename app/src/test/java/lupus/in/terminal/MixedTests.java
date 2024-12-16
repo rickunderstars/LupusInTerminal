@@ -35,4 +35,16 @@ public class MixedTests {
 
         assertThat(Villager.INSTANCE.getPlayers()).containsExactlyInAnyOrderElementsOf(List.of(p1,p3));
     }
+
+    @Test
+    public void testPlayerGetRole() {
+        Player p1 = new Player("gianni");
+
+        assertThat(p1.getRole()).isEqualTo(Role.NULL);
+
+        Villager.INSTANCE.add(p1);
+
+        assertThat(p1.getRole()).isEqualTo(Villager.INSTANCE);
+    }
+
 }

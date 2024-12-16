@@ -1,5 +1,7 @@
 package lupus.in.terminal;
 
+import lupus.in.terminal.roles.Role;
+
 public class Player {
 
     private final String name;
@@ -24,5 +26,9 @@ public class Player {
         if (o == null || getClass() != o.getClass()) return false;
         Player player = (Player) o;
         return name.equals(player.name);
+    }
+
+    public Role getRole() {
+        return null;
     }
 }
