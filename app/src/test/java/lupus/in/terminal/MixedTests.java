@@ -21,46 +21,49 @@ public class MixedTests {
 
     @Test
     public void testRoleAssignment() {
+        Role villagers = new Villager();
         Player p1 = new Player("gianni");
         Player p2 = new Player("giovanni");
         Player p3 = new Player("jeremy");
 
-        Villager.INSTANCE.add(p1);
-        Villager.INSTANCE.add(p2);
-        Villager.INSTANCE.add(p3);
+        villagers.add(p1);
+        villagers.add(p2);
+        villagers.add(p3);
 
-        assertThat(Villager.INSTANCE.getPlayers()).containsExactlyInAnyOrderElementsOf(Set.of(p1,p2,p3));
+        assertThat(villagers.getPlayers()).containsExactlyInAnyOrderElementsOf(Set.of(p1,p2,p3));
 
-        Villager.INSTANCE.remove(p2);
+        villagers.remove(p2);
 
-        assertThat(Villager.INSTANCE.getPlayers()).containsExactlyInAnyOrderElementsOf(Set.of(p1,p3));
+        assertThat(villagers.getPlayers()).containsExactlyInAnyOrderElementsOf(Set.of(p1,p3));
     }
 
     @Test
     public void testPlayerGetRole() {
+        Role villagers = new Villager();
         Player p1 = new Player("gianni");
 
         assertThat(p1.getRole()).isEqualTo(Role.NULL);
 
-        Villager.INSTANCE.add(p1);
+        villagers.add(p1);
 
-        assertThat(p1.getRole()).isEqualTo(Villager.INSTANCE);
+        assertThat(p1.getRole()).isEqualTo(villagers);
     }
 
     @Test
     public void testRoleGetAliveAndDead() {
+        Role villagers = new Villager();
         Player p1 = new Player("gianni");
         Player p2 = new Player("giovanni");
         Player p3 = new Player("jeremy");
 
-        Villager.INSTANCE.add(p1);
-        Villager.INSTANCE.add(p2);
-        Villager.INSTANCE.add(p3);
+        villagers.add(p1);
+        villagers.add(p2);
+        villagers.add(p3);
 
         p2.die();
 
-        assertThat(Villager.INSTANCE.getAlive()).containsExactlyInAnyOrderElementsOf(Set.of(p1,p3));
-        assertThat(Villager.INSTANCE.getDead()).containsExactlyInAnyOrderElementsOf(Set.of(p2));
+        assertThat(villagers.getAlive()).containsExactlyInAnyOrderElementsOf(Set.of(p1,p3));
+        assertThat(villagers.getDead()).containsExactlyInAnyOrderElementsOf(Set.of(p2));
     }
 
 }
